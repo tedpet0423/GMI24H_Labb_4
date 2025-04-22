@@ -1,0 +1,2 @@
+Exeptions https://learn.microsoft.com/en-us/dotnet/standard/exceptions/how-to-create-localized-exception-messages
+Methods https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods

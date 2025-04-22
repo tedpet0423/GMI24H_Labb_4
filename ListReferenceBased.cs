@@ -1,49 +1,50 @@
 namespace GMI24H_Labb_4;
 
 public class ListReferenceBased : ListInterface
-{   
-    
+{
+
     private Node head;
     private int numItems;
-    
-    public void add(int index, object item)
+
+    public void Add(int index, object item)
     {
-        
+        Node node = new Node(null, item);
+        // fortsätta med något smart här...
     }
 
-    public object get(int index)
+    public object Get(int index)
     {
         throw new NotImplementedException();
     }
 
-    public bool isEmpty()
+    public bool IsEmpty()
     {
         if (head == null)
         {
-            return true;  
+            return true;
         }
         else
         {
             return false;
         }
-        
+
     }
 
-    public void remove(int index)
+    public void Remove(int index)
     {
         // if n == index
         // prev.next = curr.next;
-        
+
     }
 
-    public void removeAll()
+    public void RemoveAll()
     {
         head = null;
     }
 
-    public int size()
+    public int Size()
     {
         return numItems;
     }
-    
+
 }
