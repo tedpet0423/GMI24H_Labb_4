@@ -145,6 +145,7 @@ public class ListReferenceBased : ListInterface
             Node prev = Find(index - 1);
             Node next = Find(index + 1);
             prev.SetNext(next);
+            _numItems--;
         }
         else
         {
