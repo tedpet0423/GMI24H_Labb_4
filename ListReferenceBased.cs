@@ -10,7 +10,7 @@ public class ListReferenceBased : ListInterface
 
     public void Add(int index, object item)
     {
-        if ((index >= 1) && (index <= this._numItems + 1))
+        if ((index >= 1) && (index <= _numItems + 1))
         {
             if (index == 1)
             {
@@ -18,11 +18,17 @@ public class ListReferenceBased : ListInterface
             }
             else
             {
-                Node prev = this.Find(index - 1);
-                Node newNode = new Node(prev.getNext(), item);
-                prev.setNext(newNode);
+                Node prev = Find(index - 1);
+                Node newNode = new Node(prev.GetNext(), item);
+                prev.SetNext(newNode);
             }
+            _numItems++;
         }
+        else
+        {
+            throw new ListIndexOutOfBoundsException();
+        }
+
     }
 
 
@@ -95,14 +101,18 @@ public class ListReferenceBased : ListInterface
 
     public Object Get(int index)
     {
-        if ((index >= 1) && (index <= this._numItems))
+        if ((index >= 1) && (index <= _numItems))
         {
-            Node curr = this.Find(index);
-            Object dataItem = curr.getItem();
+            Node curr = Find(index);
+            Object dataItem = curr.GetItem();
             return dataItem;
         }
+        else
+        {
+            throw new ListIndexOutOfBoundsException();
+        }
 
-        return null;
+
     }
     // lånat från kursrum, [ListReferenceBased].png
     private Node Find(int index)
@@ -110,7 +120,7 @@ public class ListReferenceBased : ListInterface
         Node curr = head;
         for (int skip = 1; skip < index; skip++)
         {
-            curr = curr.getNext();
+            curr = curr.GetNext();
         }
         return curr;
     }
@@ -130,6 +140,16 @@ public class ListReferenceBased : ListInterface
     {
         // if n == index
         // prev.next = curr.next;
+        if ((index >= 1) && (index <= _numItems))
+        {
+            Node prev = Find(index - 1);
+            Node next = Find(index + 1);
+            prev.SetNext(next);
+        }
+        else
+        {
+            throw new ListIndexOutOfBoundsException();
+        }
 
     }
 

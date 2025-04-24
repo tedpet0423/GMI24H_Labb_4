@@ -12,17 +12,17 @@ public class Node
        _next = next;
     }
 
-    public Node getNext()
+    public Node GetNext()
     {
         return _next;
     }
 
-    public void setNext(Node next)
+    public void SetNext(Node next)
     {
         _next = next;
     }
 
-    public Object getItem()
+    public Object GetItem()
     {
         return _item;
     }
