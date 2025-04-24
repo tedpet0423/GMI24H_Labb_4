@@ -2,7 +2,7 @@ namespace GMI24H_Labb_4;
 
 public class Node
 {
-    public Node Next { get; }
+    public Node Next { get; set;}
 
     public Object Item { get; }
 

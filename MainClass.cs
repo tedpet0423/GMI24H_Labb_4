@@ -8,9 +8,11 @@
             Console.WriteLine("Hello, World!");
             Person person = new Person("ted", 0423, "certified Felkod 60");
             Person person2 = new Person("w2", 0501, "Modulo & Ovveride ansvarig");
+            Person person3 = new Person("Hones", 1970, "Ogillar mac");
             ListReferenceBased list = new ListReferenceBased();
             list.Add(0, person);
             list.Add(1, person2);
+            list.Add(2,person3);
             bool check = list.IsEmpty();
             Console.WriteLine(check);
             int size = list.Size();
@@ -19,7 +21,8 @@
             Console.WriteLine(node.ToString());
             object node2 = list.Get(2);
             Console.WriteLine(node2.ToString());
-
+            object node3 = list.Get(3);
+            Console.WriteLine(node3.ToString());
         }
     }
 }
