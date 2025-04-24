@@ -13,4 +13,9 @@ public class Person
     _profession = profession;
   }
 
+  public override string ToString()
+  {
+    return $"{_name},{_id},{_profession}";
+  }
+
 }

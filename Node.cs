@@ -2,13 +2,15 @@ namespace GMI24H_Labb_4;
 
 public class Node
 {
-    private Object _item;
-    private Node _next;
+    public Node Next { get; }
 
-    public Node(Node next, Object item )
+    public Object Item { get; }
+
+
+    public Node(Node next, Object item)
     {
-       _item = item;
-        _next = next;
+       Item = item;
+       Next = next;
     }
 
 }

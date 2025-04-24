@@ -4,18 +4,42 @@ public class ListReferenceBased : ListInterface
 {
 
     private Node head;
-    private int numItems;
+    private int _numItems;
 
     public void Add(int index, object item)
     {
-        Node node = new Node(null, item);
-        // fortsätta med något smart här...
+        if (index < 0 || index > _numItems)
+        {
+            throw new ListIndexOutOfBoundsException();
+        }
+
+        Node newNode = new Node(head, item);
+        head = newNode;
+        _numItems++;
     }
 
     public object Get(int index)
     {
-        throw new NotImplementedException();
+
+        if (index < 0 || index > _numItems)
+        {
+            throw new ListIndexOutOfBoundsException();
+        }
+        Node target = Find(index);
+        return target.Item;
     }
+
+    // lånat från kursrum, [ListReferenceBased].png
+    private Node Find(int index)
+    {
+        Node curr = head;
+        for (int skip = 1; skip < index; skip++)
+        {
+            curr = curr.Next;
+        }
+        return curr;
+    }
+
 
     public bool IsEmpty()
     {
@@ -23,11 +47,8 @@ public class ListReferenceBased : ListInterface
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
 
+        return false;
     }
 
     public void Remove(int index)
@@ -44,7 +65,7 @@ public class ListReferenceBased : ListInterface
 
     public int Size()
     {
-        return numItems;
+        return _numItems;
     }
 
 }
