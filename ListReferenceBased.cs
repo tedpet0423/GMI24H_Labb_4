@@ -10,35 +10,25 @@ public class ListReferenceBased : ListInterface
 
     public void Add(int index, object item)
     {
-        if (index < 0 || index > _numItems)
+        if ((index >= 1) && (index <= this._numItems + 1))
         {
-            throw new ListIndexOutOfBoundsException("Index out of bounds");
-        }
-
-        if(_numItems == 0)
-        {
-            Node newNode = new Node(head, item);
-            head = newNode;
-            _numItems++;
-            Console.WriteLine("String zero");
-        }
-        else
-        {
-            Node curr = head;
-            for(int i = 0; i < index; i++)
+            if (index == 1)
             {
-                curr = curr.Next;
+                head = new Node(head, item);
             }
-            Node newNode = new Node(curr, item);
-            curr.Next = newNode;
+            else
+            {
+                Node prev = this.Find(index - 1);
+                Node newNode = new Node(prev.getNext(), item);
+                prev.setNext(newNode);
+            }
         }
     }
 
-    /* lägger in funktionalitet nedan som vi tittar på tillsammans
 
-    public void Add(int index, object item)
+   /* public void Add1(int index, object item)
     {
-        if (index < 0 || index >= _numItems)
+        if (index < 0 || index > _numItems)
         {
             throw new ListIndexOutOfBoundsException("Index out of bounds");
         }
@@ -103,24 +93,24 @@ public class ListReferenceBased : ListInterface
 
 */
 
-    public object Get(int index)
+    public Object Get(int index)
     {
-
-        if (index < 0 || index > _numItems)
+        if ((index >= 1) && (index <= this._numItems))
         {
-            throw new ListIndexOutOfBoundsException();
+            Node curr = this.Find(index);
+            Object dataItem = curr.getItem();
+            return dataItem;
         }
-        Node target = Find(index);
-        return target.Item;
-    }
 
+        return null;
+    }
     // lånat från kursrum, [ListReferenceBased].png
     private Node Find(int index)
     {
         Node curr = head;
         for (int skip = 1; skip < index; skip++)
         {
-            curr = curr.Next;
+            curr = curr.getNext();
         }
         return curr;
     }
