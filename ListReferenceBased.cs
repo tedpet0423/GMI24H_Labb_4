@@ -5,8 +5,9 @@ namespace GMI24H_Labb_4;
 public class ListReferenceBased : ListInterface
 {
 
-    private Node head;
+    private Node _head = null!;
     private int _numItems;
+    
 
     public void Add(int index, object item)
     {
@@ -14,7 +15,7 @@ public class ListReferenceBased : ListInterface
         {
             if (index == 1)
             {
-                head = new Node(head, item);
+                _head = new Node(_head, item);
             }
             else
             {
@@ -30,74 +31,6 @@ public class ListReferenceBased : ListInterface
         }
 
     }
-
-
-   /* public void Add1(int index, object item)
-    {
-        if (index < 0 || index > _numItems)
-        {
-            throw new ListIndexOutOfBoundsException("Index out of bounds");
-        }
-        if (index == 0)
-            AddAtStartOfList(item);
-
-        else if(index == _numItems)
-        {
-            AddAtEndOfList(item);
-        }
-
-        else
-        {
-            AddAfterGivenNode(index, item);
-        }
-    }
-
-    public void AddAtStartOfList(object item)
-    {
-        // skapar upp en ny som pekar på gamla head
-        head = new Node(head, item);
-        _numItems++;
-    }
-
-    public void AddAtEndOfList(object item)
-    {
-        if (head == null)
-        {
-            head = new Node(null, item);
-        }
-        else
-        {
-            Node curr = head;
-            // hittar den sistar noden
-            while(curr.Next != null)
-            {
-                curr = curr.Next;
-                curr.Next = new Node(null, item);
-            }
-        }
-        _numItems++;
-    }
-
-    public void AddAfterGivenNode(int index, object item)
-    {
-        if (index < 0 || index >= _numItems)
-        {
-            throw new ListIndexOutOfBoundsException("Index out of bounds");
-        }
-
-        // Använder oss av find(index) för at hitta noden där vi ska lägga till efter.
-        Node curr = Find(index);
-
-        // Skapar upp en ny nod som pekar mot curr.Next
-        Node newNode = new Node(curr.Next, item);
-
-        // Vi pekar sedan curr till den nya noden
-        curr.Next = newNode;
-
-        _numItems++;
-    }
-
-*/
 
     public Object Get(int index)
     {
@@ -117,7 +50,7 @@ public class ListReferenceBased : ListInterface
     // lånat från kursrum, [ListReferenceBased].png
     private Node Find(int index)
     {
-        Node curr = head;
+        Node curr = _head;
         for (int skip = 1; skip < index; skip++)
         {
             curr = curr.GetNext();
@@ -125,10 +58,10 @@ public class ListReferenceBased : ListInterface
         return curr;
     }
 
-
+    // Metod som checkar om det finns element i listan, om head = Null så finns inga element i listan
     public bool IsEmpty()
     {
-        if (head == null)
+        if (_head == null)
         {
             return true;
         }
@@ -156,7 +89,8 @@ public class ListReferenceBased : ListInterface
 
     public void RemoveAll()
     {
-        head = null;
+        _head = null;
+        _numItems = 0;
     }
 
     public int Size()

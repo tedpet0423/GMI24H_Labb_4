@@ -1,3 +1,4 @@
 Exeptions https://learn.microsoft.com/en-us/dotnet/standard/exceptions/how-to-create-localized-exception-messages
 Methods https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods
 LinkedList stackoverflow https://stackoverflow.com/questions/3823848/creating-a-very-simple-linked-list
+null! https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-forgiving
