@@ -2,11 +2,12 @@ namespace GMI24H_Labb_4;
 
 public class Person
 {
+  // deklarerar klass variabler 
   private string _name;
   private int _id;
   private string _profession;
   
-// konstruktor för person-objektet. 
+//konstruktorn för person-objektet. 
   public Person(string name, int id, string profession)
   {
     _name = name;

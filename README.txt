@@ -1,3 +1,7 @@
+
+
+Länk till videon: https://youtu.be/TtwRbLdrDsg
+
 Frågor; 
 Tidskomplexitet för att lägga till i början av länkad lista: O(1)
 Tidskomplexitet för att lägga till i mitten av länkad lista: O(n) {n/2 för att vara exakt men ingen big O notation finns för detta.}

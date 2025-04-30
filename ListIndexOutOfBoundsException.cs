@@ -1,5 +1,7 @@
 namespace GMI24H_Labb_4;
 
+// klass för skräddarsydda exceptions
+
 public class ListIndexOutOfBoundsException : Exception
 {
     public ListIndexOutOfBoundsException()

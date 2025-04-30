@@ -5,10 +5,12 @@ namespace GMI24H_Labb_4;
 public class ListReferenceBased : IListInterface
 {
 
+    // definerar klassvariabler
     private Node _head = null!;
     private int _numItems;
     
-
+// metod för operationen add. Vi tittar på om indexet är större eller lika med 1 eller om indexet ligger mellan 1 och värdet för _numItems, dvs listans storlek.
+// Om inte kastas exception
     public void Add(int index, object item)
     {
         if ((index >= 1) && (index <= _numItems + 1))
@@ -32,13 +34,16 @@ public class ListReferenceBased : IListInterface
 
     }
 
+    // Villkoren för våra operationer är densamma som innan. 
+    // Är vi inom listan så hämtar vi objectet (datan) för noden.
+    // annars kastas exception
     public Object Get(int index)
     {
         if ((index >= 1) && (index <= _numItems))
         {
             Node curr = Find(index);
-            Object dataItem = curr.GetItem();
-            return dataItem;
+            Object item = curr.GetItem();
+            return item;
         }
         else
         {
@@ -48,6 +53,7 @@ public class ListReferenceBased : IListInterface
 
     }
     // lånat från kursrum,modifierat med exception [ListReferenceBased].png
+    // Metod för att hitta nod på index med hantering av värden utanför listan.
     private Node Find(int index)
     {
         if ((index >= 0) && (index <= _numItems))
@@ -77,10 +83,11 @@ public class ListReferenceBased : IListInterface
         return false;
     }
 
+    // Samma grundvillkor som tidigare gäller även för Remove.
+    // Vi flytar pekaren från det föregående nod till efterföjande nod
     public void Remove(int index)
     {
-        // if n == index
-        // prev.next = curr.next;
+       
         if ((index >= 1) && (index <= _numItems))
         {
             Node prev = Find(index - 1);
@@ -95,11 +102,14 @@ public class ListReferenceBased : IListInterface
 
     }
 
+    // Metod för att ta bort alla noder ifrån listan genom att sätta _head till null och uppdatera _numItems
     public void RemoveAll()
     {
         _head = null;
         _numItems = 0;
     }
+    
+    // metoden för att returnera storleken på listan
 
     public int Size()
     {

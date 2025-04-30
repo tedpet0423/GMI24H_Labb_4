@@ -12,6 +12,7 @@ namespace GMI24H_Labb_4
             // Använd addRemoveOneByOne = false för att istället ta lägga till alla direkt och sedan ta bort alla i ett steg
             // time är hur fort animationen ska gå.
             bool addRemoveOneByOne = false;
+            // bool addRemoveOneByOne = true;
             int time = 50;
             int index = 1;
 
@@ -23,7 +24,7 @@ namespace GMI24H_Labb_4
 
             // string file = "C:\\Users\\Ted\\Documents\\GitHub\\GMI24H_Labb_4\\Names.csv";
 
-            // instansierar  ListReferenceBased, dvs skapar en länkad lista
+            // instansierar ListReferenceBased, dvs skapar en länkad lista
             ListReferenceBased list = new ListReferenceBased();
 
             Person personToAdd = new Person("w2", 0501, "Modulo & Ovveride ansvarig");
@@ -56,10 +57,7 @@ namespace GMI24H_Labb_4
                         list.Add(index,person);
                         index++;
                     }
-
-
-
-
+                    
                 }
 
             }
@@ -90,7 +88,7 @@ namespace GMI24H_Labb_4
             node3 = list.Get(3);
             Console.WriteLine(node3.ToString());
 
-            // Lägger till en person på plats 99(näst sist) i LL
+            // Lägger till en person på plats 100(sist) i LL
             Console.WriteLine("\nVi lägger till w2 på plats 100\n");
             list.Add(100, personToAdd);
 
@@ -107,6 +105,7 @@ namespace GMI24H_Labb_4
             if (!addRemoveOneByOne)
             {   Console.WriteLine("Plockar bort alla element.");
                 list.RemoveAll();
+                check = list.IsEmpty();
                 Console.WriteLine("\nIsEmpty returnerar: " + check);
                 Console.WriteLine("Listans storlek: " + list.Size() + "\n");
             }

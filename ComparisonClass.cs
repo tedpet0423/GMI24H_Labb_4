@@ -4,8 +4,8 @@ namespace GMI24H_Labb_4;
 
 public class ComparisonClass
 {
-    private ListReferenceBased lList = new ListReferenceBased();
-    private int[] arr = new int[100];
+    private ListReferenceBased _lList = new ListReferenceBased();
+    private int[] _arr = new int[100];
 
 
     // tar tid och jämför LänkadLista vs Array
@@ -64,7 +64,7 @@ public class ComparisonClass
     {
         for (int i = 1; i < 100; i++)
         {
-            lList.Add(i,i);
+            _lList.Add(i,i);
         }
     }
     // metod för att lägga till 100 element i början av en länkad lista
@@ -72,7 +72,7 @@ public class ComparisonClass
     {
         for (int i = 1; i < 100; i++)
         {
-            lList.Add(1,i);
+            _lList.Add(1,i);
         }
     }
     // metod för att lägga till 100 element i mitten av en länkad lista
@@ -80,8 +80,8 @@ public class ComparisonClass
     {
         for (int i = 1; i < 100; i++)
         {
-            int size = lList.Size() / 2;
-            lList.Add(size,i);
+            int size = _lList.Size() / 2;
+            _lList.Add(size,i);
         }
     }
     // metod för att lägga till 100 element i slutet av en länkad lista
@@ -89,8 +89,8 @@ public class ComparisonClass
     {
         for (int i = 0; i < 100; i++)
         {
-            int size = lList.Size();
-            lList.Add(size,i);
+            int size = _lList.Size();
+            _lList.Add(size,i);
         }
     }
     // fyller en array  med värden
@@ -99,9 +99,9 @@ public class ComparisonClass
         for (int i = 0; i < 100; i++)
         {
             int[] newArr = new int[100];
-            arr.CopyTo(newArr,0);
-            newArr[arr.Length-1] = i;
-            arr = newArr;
+            _arr.CopyTo(newArr,0);
+            newArr[_arr.Length-1] = i;
+            _arr = newArr;
 
         }
     }
@@ -111,10 +111,10 @@ public class ComparisonClass
     {
         for (int i = 0; i < 100; i++)
         {
-            int[] newArr = new int[arr.Length+1];
-            arr.CopyTo(newArr,0);
+            int[] newArr = new int[_arr.Length+1];
+            _arr.CopyTo(newArr,0);
             newArr[0] = i;
-            arr = newArr;
+            _arr = newArr;
 
         }
 
@@ -125,11 +125,11 @@ public class ComparisonClass
     {
         for (int i = 0; i < 100; i++)
         {
-            int length = arr.Length / 2;
-            int[] newArr = new int[arr.Length+1];
-            arr.CopyTo(newArr,0);
+            int length = _arr.Length / 2;
+            int[] newArr = new int[_arr.Length+1];
+            _arr.CopyTo(newArr,0);
             newArr[length] = i;
-            arr = newArr;
+            _arr = newArr;
 
         }
 
@@ -139,10 +139,10 @@ public class ComparisonClass
     {
         for (int i = 0; i < 100; i++)
         {
-            int[] newArr = new int[arr.Length+1];
-            arr.CopyTo(newArr,0);
-            newArr[arr.Length] = i;
-            arr = newArr;
+            int[] newArr = new int[_arr.Length+1];
+            _arr.CopyTo(newArr,0);
+            newArr[_arr.Length] = i;
+            _arr = newArr;
 
         }
 
