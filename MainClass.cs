@@ -8,18 +8,20 @@ namespace GMI24H_Labb_4
         public static void Main(string[] args)
         {
 
-            // Använd Visualize = true för att lägga till och ta bort personer en och en
-            // Använd Vizualize = false för att istället ta lägga till alla direkt och sedan ta bort alla i ett steg
-            // time är hur fort animationen ska gå, 200 är läsbart
-            bool visualize = false;
-            int time = 100;
+            // Använd addRemoveOneByOne = true för att lägga till och ta bort personer en och en
+            // Använd addRemoveOneByOne = false för att istället ta lägga till alla direkt och sedan ta bort alla i ett steg
+            // time är hur fort animationen ska gå.
+            bool addRemoveOneByOne = false;
+            int time = 50;
             int index = 1;
 
             // ________________________OBS!!__________________________________________
             // LÄGG TILL DIN SÖKVÄG FÖR Names.csv
             // Måste ligga lokalt
+            
+            string file = "/Users/williamekbladh/Desktop/Names.csv";
 
-            string file = "C:\\Users\\Ted\\Documents\\GitHub\\GMI24H_Labb_4\\Names.csv";
+            // string file = "C:\\Users\\Ted\\Documents\\GitHub\\GMI24H_Labb_4\\Names.csv";
 
             // instansierar  ListReferenceBased, dvs skapar en länkad lista
             ListReferenceBased list = new ListReferenceBased();
@@ -32,7 +34,7 @@ namespace GMI24H_Labb_4
                 var values = line.Split(',');
                 if (values.Length == 3)
                 {
-                    if (visualize)
+                    if (addRemoveOneByOne)
                     {
                         Console.Clear();
                         Console.WriteLine("Lägger till...");
@@ -102,7 +104,7 @@ namespace GMI24H_Labb_4
 
             // Loop som kan ta bort alla personer på en gång eller en och en
             int temp = list.Size();
-            if (!visualize)
+            if (!addRemoveOneByOne)
             {   Console.WriteLine("Plockar bort alla element.");
                 list.RemoveAll();
                 Console.WriteLine("\nIsEmpty returnerar: " + check);
@@ -110,15 +112,15 @@ namespace GMI24H_Labb_4
             }
             else
             {
-                while (list.Size() > 0)
+                while (list.Size() > 1)
                 {
+                    Console.Clear();
                     Random rnd = new Random();
                     int rand = rnd.Next(1, temp);
-                    Console.Clear();
                     Console.WriteLine("Plockar bort...");
                     Console.WriteLine(list.Get(rand));
                     list.Remove(rand);
-                    Console.WriteLine("På plats: " + rand + "/" + (list.Size()+1));
+                    Console.WriteLine("På index: " + rand + "/" + (list.Size()));
                     temp--;
                     Thread.Sleep(time);
                 }
@@ -156,23 +158,6 @@ namespace GMI24H_Labb_4
                                       "Försök igen!");
                 }
             }
-
-            // endast för diagnostik av värden
-            // ej vetenskaplig metod
-            //for (int i = 0; i < 10000; i++)
-            //{
-            //    Console.Clear();
-            //    ComparisonClass compare = new ComparisonClass();
-            //    compare.CompareLlToArray();
-            //    Thread.Sleep(10);
-            //}
-
-
-
-
-
-
-
         }
     }
 }

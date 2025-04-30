@@ -1,5 +1,6 @@
 namespace GMI24H_Labb_4;
 
+// I Node.cs definierar vi själva noden. Varje nod är en låda med ett värde och pekare vidare.
 public class Node
 {
     private Node _next;

@@ -2,7 +2,7 @@ using System.Diagnostics.Contracts;
 
 namespace GMI24H_Labb_4;
 
-public class ListReferenceBased : ListInterface
+public class ListReferenceBased : IListInterface
 {
 
     private Node _head = null!;
@@ -47,15 +47,23 @@ public class ListReferenceBased : ListInterface
 
 
     }
-    // lånat från kursrum, [ListReferenceBased].png
+    // lånat från kursrum,modifierat med exception [ListReferenceBased].png
     private Node Find(int index)
     {
-        Node curr = _head;
-        for (int skip = 1; skip < index; skip++)
+        if ((index >= 0) && (index <= _numItems))
         {
-            curr = curr.GetNext();
+            Node curr = _head;
+            for (int skip = 1; skip < index; skip++)
+            {
+                curr = curr.GetNext();
+            }
+
+            return curr;
         }
-        return curr;
+        else
+        {
+            throw new ListIndexOutOfBoundsException();
+        }
     }
 
     // Metod som checkar om det finns element i listan, om head = Null så finns inga element i listan
