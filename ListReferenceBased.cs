@@ -87,12 +87,16 @@ public class ListReferenceBased : IListInterface
     // Vi flytar pekaren från det föregående nod till efterföjande nod
     public void Remove(int index)
     {
-       
-        if ((index >= 1) && (index <= _numItems))
+        if (index == 1)
         {
-            Node prev = Find(index - 1);
-            Node next = Find(index + 1);
-            prev.SetNext(next);
+            _head = _head.GetNext();
+            _numItems--;
+        }
+        else if ((index > 1) && (index <= _numItems))
+        {
+            Node prev = Find(index - 1);        
+            Node current = prev.GetNext();      
+            prev.SetNext(current.GetNext());
             _numItems--;
         }
         else

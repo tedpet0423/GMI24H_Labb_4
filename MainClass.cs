@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 
 namespace GMI24H_Labb_4
 {
@@ -7,12 +8,34 @@ namespace GMI24H_Labb_4
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Press 1 for Generic Stack Parenthesis Check\n" +
+                              "Press 2 for LinkedList Stack Parenthesis Check");
+            string userInput = Console.ReadLine();
+            
+            if (userInput == "1")
+            {
+                StackClass stackClass = new StackClass();
+                stackClass.CountParenthesis(1);
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else if (userInput == "2")
+            { 
+                StackClass stackClass = new StackClass();
+                stackClass.CountParenthesis(2);
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            
+            
 
             // Använd addRemoveOneByOne = true för att lägga till och ta bort personer en och en
             // Använd addRemoveOneByOne = false för att istället ta lägga till alla direkt och sedan ta bort alla i ett steg
             // time är hur fort animationen ska gå.
-            bool addRemoveOneByOne = false;
-            // bool addRemoveOneByOne = true;
+            // addRemoveOneByOne = false;
+            bool addRemoveOneByOne = true;
             int time = 50;
             int index = 1;
 
